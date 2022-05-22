@@ -1,0 +1,20 @@
+.post {
+    border: 1px solid;
+    padding: 20px;
+    margin: 10px 0;
+    text-decoration: none;
+    color: black;
+    display: block;
+    width: 50%;
+}
+
+.post:hover {
+	border: 2px solid;
+}
+
+.content {
+	width: 250px; 
+	white-space: nowrap; 
+	overflow: hidden; 
+	text-overflow: ellipsis;
+}

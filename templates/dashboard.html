@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		<title>Blog Dashboard</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}" type="text/css"></link>
+	</head>
+
+	<body>
+		<div class="welcomeWrapper">
+			<h1 class="welcome">Welcome!</h1>
+			<a href="/create_post">
+				<button>Create New Post</button>
+			</a>
+			<a href="/">
+				<button>Back to homepage</button>
+			</a>
+		</div>
+		<div class="app">
+			<div class="left">
+				<table id="posts">
+					<tr>
+					  <th>ID</th>
+					  <th>Title</th>
+					  <th>Published Date</th>
+					  <th>Author</th>
+					  <th>Content</th>
+					  <th>Permalink URL</th>
+					</tr>
+				{% for item in posts %}
+					<tr>
+						<td>{{item[0]}}</td>
+						<td>{{item[1]}}</td>
+						<td>{{item[2]}}</td>
+						<td>{{item[3]}}</td>
+						<td>
+							<div class="content">{{item[4]}}</div>
+						</td>
+						<td>{{item[5]}}</td>
+						<td>
+							<a href="/edit_post/{{item[0]}}">
+								<button>Edit</button>
+							</a>
+						</td>
+						<td>
+							<form action="/delete_post/{{item[0]}}" method="post">
+								<button>Delete</button>
+							</form>
+						</td>
+						<td>
+							<a href="{{item[5]}}">
+								<button>View HTML Post</button>
+							</a>
+						</td>
+					</tr>
+				{% endfor %}
+				</table>
+			</div>
+		</div>
+	</body>
+
+</html>

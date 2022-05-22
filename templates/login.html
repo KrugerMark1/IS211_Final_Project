@@ -1,0 +1,31 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		<title>Blog Login</title>
+	</head>
+
+	<body>
+		<div class="app">
+			<a href="/">
+				<button>Back to homepage</button>
+			</a>
+			<form action="/login" method="post">
+				<label for="username">
+					Username
+				</label>
+				<input type="text" name="username">
+				<label for="password">
+					Password
+				</label>
+				<input type="password" name="password">
+				<button type="submit" class="submit">Login</button>
+			</form>
+			{% if error_messages %}
+ 				<div>{{error_messages}}</div>
+			{% endif %}
+		</div>
+	</body>
+
+</html>

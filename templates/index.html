@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		<title>Welcome to my blog</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}" type="text/css"></link>
+	</head>
+
+	<body>
+		<div>
+			<a href="/login">
+				<button>Login</button>
+			</a>
+			<a href="/dashboard">
+				<button>Dashboard</button>
+			</a>
+		</div>
+		<h1>Posts({{posts | length}}):</h1>
+		<div class="app">
+			{% for post in posts %}
+				<div>
+					<a href="{{post[5]}}" class="post">
+						<h2>{{post[1]}}</h2>
+						<p>Published on: {{post[2]}}</p>
+						<p>Written by: {{post[3]}}</p>
+						<br>
+						<b><u>Click to read more...</u></b>
+					</a>
+				</div>
+			{% endfor %}
+			{% if error_messages %}
+ 				<div>{{error_messages}}</div>
+			{% endif %}
+		</div>
+	</body>
+
+</html>
